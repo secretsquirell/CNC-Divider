@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45mm" height="54mm" viewBox="0 0 45 54">
+<rect x="0" y="0" width="45" height="54" fill="#0a3d0a"/>
+<text x="4" y="6" font-size="4" fill="#ffffff" font-family="monospace">PENDANT BOARD - copper (component side view)</text>
+<g transform="translate(0,8)">
+<rect x="10.000" y="9.500" width="18.000" height="1.000" fill="#c87137"/>
+<rect x="10.000" y="12.040" width="18.000" height="1.000" fill="#c87137"/>
+<rect x="10.000" y="14.580" width="18.000" height="1.000" fill="#c87137"/>
+<rect x="10.000" y="17.120" width="18.000" height="1.000" fill="#c87137"/>
+<rect x="10.000" y="19.660" width="18.000" height="1.000" fill="#c87137"/>
+<rect x="10.000" y="22.200" width="18.000" height="1.000" fill="#c87137"/>
+<rect x="10.000" y="24.740" width="18.000" height="1.000" fill="#c87137"/>
+<rect x="10.000" y="27.280" width="18.000" height="1.000" fill="#c87137"/>
+<rect x="5.000" y="24.740" width="5.000" height="1.000" fill="#c87137"/>
+<rect x="4.500" y="5.000" width="1.000" height="20.240" fill="#c87137"/>
+<rect x="5.000" y="4.500" width="35.000" height="1.000" fill="#c87137"/>
+<rect x="31.500" y="5.000" width="1.000" height="28.000" fill="#c87137"/>
+<rect x="28.000" y="32.500" width="4.000" height="1.000" fill="#c87137"/>
+<rect x="39.500" y="5.000" width="1.000" height="33.000" fill="#c87137"/>
+<rect x="28.000" y="37.500" width="12.000" height="1.000" fill="#c87137"/>
+<rect x="7.000" y="27.280" width="3.000" height="1.000" fill="#c87137"/>
+<rect x="6.500" y="27.780" width="1.000" height="14.220" fill="#c87137"/>
+<rect x="7.000" y="41.500" width="29.000" height="1.000" fill="#c87137"/>
+<rect x="35.500" y="40.500" width="1.000" height="1.500" fill="#c87137"/>
+<rect x="28.000" y="40.000" width="8.000" height="1.000" fill="#c87137"/>
+<rect x="9.050" y="9.050" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="10.000" cy="10.000" r="0.4" fill="#000000"/>
+<text x="11.100" y="10.900" font-size="1.6" fill="#ffffff" font-family="monospace">BTN_SIG</text>
+<rect x="9.050" y="11.590" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="10.000" cy="12.540" r="0.4" fill="#000000"/>
+<text x="11.100" y="13.440" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_SW</text>
+<rect x="9.050" y="14.130" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="10.000" cy="15.080" r="0.4" fill="#000000"/>
+<text x="11.100" y="15.980" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_DT</text>
+<rect x="9.050" y="16.670" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="10.000" cy="17.620" r="0.4" fill="#000000"/>
+<text x="11.100" y="18.520" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_CLK</text>
+<rect x="9.050" y="19.210" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="10.000" cy="20.160" r="0.4" fill="#000000"/>
+<text x="11.100" y="21.060" font-size="1.6" fill="#ffffff" font-family="monospace">SDA</text>
+<rect x="9.050" y="21.750" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="10.000" cy="22.700" r="0.4" fill="#000000"/>
+<text x="11.100" y="23.600" font-size="1.6" fill="#ffffff" font-family="monospace">SCL</text>
+<rect x="9.050" y="24.290" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="10.000" cy="25.240" r="0.4" fill="#000000"/>
+<text x="11.100" y="26.140" font-size="1.6" fill="#ffffff" font-family="monospace">GND</text>
+<rect x="9.050" y="26.830" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="10.000" cy="27.780" r="0.4" fill="#000000"/>
+<text x="11.100" y="28.680" font-size="1.6" fill="#ffffff" font-family="monospace">5V</text>
+<rect x="27.050" y="26.830" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="27.780" r="0.4" fill="#000000"/>
+<text x="29.100" y="28.680" font-size="1.6" fill="#ffffff" font-family="monospace">OLED_VCC</text>
+<rect x="27.050" y="24.290" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="25.240" r="0.4" fill="#000000"/>
+<text x="29.100" y="26.140" font-size="1.6" fill="#ffffff" font-family="monospace">OLED_GND</text>
+<rect x="27.050" y="19.210" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="20.160" r="0.4" fill="#000000"/>
+<text x="29.100" y="21.060" font-size="1.6" fill="#ffffff" font-family="monospace">OLED_SDA</text>
+<rect x="27.050" y="21.750" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="22.700" r="0.4" fill="#000000"/>
+<text x="29.100" y="23.600" font-size="1.6" fill="#ffffff" font-family="monospace">OLED_SCL</text>
+<rect x="27.050" y="16.670" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="17.620" r="0.4" fill="#000000"/>
+<text x="29.100" y="18.520" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_CLK</text>
+<rect x="27.050" y="14.130" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="15.080" r="0.4" fill="#000000"/>
+<text x="29.100" y="15.980" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_DT</text>
+<rect x="27.050" y="11.590" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="12.540" r="0.4" fill="#000000"/>
+<text x="29.100" y="13.440" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_SW</text>
+<rect x="27.050" y="32.050" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="33.000" r="0.4" fill="#000000"/>
+<text x="29.100" y="33.900" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_GND</text>
+<rect x="27.050" y="39.550" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="40.500" r="0.4" fill="#000000"/>
+<text x="29.100" y="41.400" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_VCC</text>
+<rect x="27.050" y="9.050" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="10.000" r="0.4" fill="#000000"/>
+<text x="29.100" y="10.900" font-size="1.6" fill="#ffffff" font-family="monospace">BTN_SIG</text>
+<rect x="27.050" y="37.050" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="28.000" cy="38.000" r="0.4" fill="#000000"/>
+<text x="29.100" y="38.900" font-size="1.6" fill="#ffffff" font-family="monospace">BTN_GND</text>
+</g>
+</svg>

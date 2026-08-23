@@ -1,77 +1,71 @@
-# Enclosure — Print & Assembly Notes (Arduino Nano version)
+# Enclosures — Print & Assembly Notes
 
-File: `enclosure.scad` — open in **OpenSCAD** (free, openscad.org),
-press F6 to render, then **File → Export → Export as STL**. It renders
-the base and lid side by side in one file so you can slice both at
-once, or comment out one `base();` / `lid();` call at the bottom to
-export them separately.
+Two separate boxes now, in place of the earlier single stacked design:
 
-This box is noticeably smaller than an Uno-based one (85×55×~34mm vs
-120×85×40mm) since the Nano itself is only 45×18mm.
+- `enclosure_main.scad` — main board (Nano-carrier PCB, DRV8825 driver,
+  LM2596 buck converter, Anderson Powerpole power input)
+- `enclosure_pendant.scad` — pendant board (OLED, rotary encoder, index
+  button)
 
-## Design approach
-Control pendant only: Nano, OLED, rotary encoder, and index button. The
-stepper driver stays in its own enclosure (heat + higher current), fed
-through the rear cable pass-through, which also carries the Nano's own
-5V/USB power in if you're running a USB cable out to a wall adapter
-rather than powering the Nano from VIN.
+Both open the same way: press F6 in OpenSCAD to render, then File →
+Export → Export as STL. Each file lays out its base and lid side by
+side for printing.
 
-## Layout (top panel, i.e. the lid)
-```
- ┌─────────────────────────────────────┐
- │  [ OLED WINDOW ]           ( o )     │  encoder
- │                                      │
- │                             ( ● )    │  index button
- └─────────────────────────────────────┘
-```
+## Main board enclosure
 
-## Nano mounting — read this before printing
-The standard Arduino Nano has **no mounting holes**; it's designed to
-plug into a breadboard, with header pins running along both long
-edges. Instead of standoffs, this enclosure prints a pair of **card-edge
-rails** in the base — narrow slots that the bare edges of the Nano PCB
-slide into, gripping it in place without any screws (similar to how a
-graphics card slots into a desktop PC). Slide the Nano in from the open
-top before you screw the lid on.
+~194 × 84 × 22mm. Two zones on the floor: the PCB section (with 4
+standoffs matched to the board's own verified-clear mounting holes)
+and a component bay beside it for the buck converter and DRV8825.
 
-- If your Nano has pin headers pre-soldered (most do), the headers
-  point downward into the case — make sure `rail_h` (height of the
-  rails off the floor) clears your header pin length, or the rails
-  will hit the header shroud. The default assumes ~4mm clearance;
-  bump `rail_h` up if your headers are taller.
-- If you'd rather not deal with rails, an easier alternative is to
-  glue two strips of double-sided foam tape to the case floor and
-  stick the Nano down flat, headers-down — works fine for a low-
-  vibration desktop-style control box.
+**Before you print, check these:**
+- **Buck converter and DRV8825 footprint.** Both are adhesive/hot-glue
+  mounted onto a shallow printed placement outline rather than screw
+  standoffs, since hole spacing on these cheap breakout modules varies
+  a lot between suppliers. The outlines assume a common ~45×23mm buck
+  module and ~22×16mm DRV8825 breakout — measure yours and adjust
+  `buck_w/h` and `drv_w/h` if they're a different size before
+  printing, or the module won't sit inside its outline.
+- **Anderson Powerpole cutout.** Sized for a standard 2-pole gang,
+  red+black housings dovetailed and stacked vertically — the common
+  PP15/30/45 convention. The exact housing dimensions vary by current
+  rating (PP15 vs PP30 vs PP45), so dry-fit your specific connector
+  before committing to a print; the cutout includes a small retaining
+  lip on three sides but is easy to hand-file larger if needed.
+- **Motor wire hole placement.** Positioned near the DRV8825 for a
+  short internal run — it's a simple round hole sized for a 4-conductor
+  cable bundle (no strain relief built in; add a rubber grommet or
+  zip-tie anchor point if the motor cable will see any flexing in use).
+- **USB connector type and orientation** — same caveat as before: the
+  Nano's USB cutout position/size depends on which clone you bought
+  (Mini-B/Micro-B/USB-C). Confirm before printing.
+- **Box height (22mm)** clears the buck converter's tallest component
+  (its inductor, typically the highest point on the board) with some
+  margin — if your specific module runs taller, increase `box_h_base`.
 
-## Before you print — check these against your actual parts
-- **USB connector type** — official Arduino Nano uses Mini-B; most
-  Amazon clones use Micro-B or USB-C. The `usb_cutout_w/h` values
-  default to a size that fits USB-C or Mini-B loosely; measure your
-  actual board/cable and adjust before printing, since Micro-B is
-  narrower.
-- `oled_board_w/h` — 0.96" I2C OLED PCB sizes vary by supplier; measure
-  yours before printing.
-- `enc_hole_d` / `btn_hole_d` — sized for a standard KY-040 (7mm
-  threaded bushing) and a 12mm panel-mount button.
+## Pendant enclosure
 
-## Assembly order
-1. Print `base` and `lid` (PLA/PETG, 0.2mm layers, no supports needed
-   in this orientation).
-2. Slide the Nano into the card-edge rails, USB end toward the rear
-   cutout.
-3. Slide the OLED PCB into the pocket behind the lid's window from the
-   underside; hot-glue lightly to keep it seated against the window.
-4. Press the KY-040 encoder's threaded bushing and the index button
-   through their lid holes and secure with their nuts.
-5. Wire everything per `wiring_guide.md`; route the driver cable
-   through the rear pass-through.
-6. Screw the lid onto the base's four corner bosses (M3 x 8mm
-   self-tapping).
+~63 × 64 × (12+6)mm. PCB standoffs on the base, OLED window/encoder
+shaft hole/button hole in the lid — same general approach as the
+original design's lid, just on its own smaller box now.
 
-## Suggested driver enclosure
-The TB6600/DM542 driver is usually sold with its own metal case with
-mounting ears — in most builds it's easiest to bolt that directly to
-your machine frame near the K11 rather than 3D print a second box. If
-you'd like a printable, ventilated enclosure for the driver too, let me
-know and I'll design a matching one.
+**Before you print, check these:**
+- `oled_board_w/h` and `oled_hole_dx/dy` — vary by supplier; measure
+  yours.
+- **Encoder shaft hole diameter** (`enc_hole_d`) — matched to a common
+  KY-040 module's threaded bushing; confirm against your specific part.
+- **Incoming cable hole** — sized for the 8-conductor cable coming from
+  the main enclosure; no connector is assumed inside this hole itself,
+  so if you're using a panel-mount connector instead of a bare cable
+  entry, resize accordingly.
+
+## Assembly order (both boxes)
+1. Print base + lid for each enclosure.
+2. Solder/populate each PCB per `pcb_build_guide.md`.
+3. Mount each PCB to its base on the printed standoffs (M3 screws).
+4. For the main enclosure: glue the buck converter and DRV8825 into
+   their placement outlines, then wire them to the main PCB's headers
+   and to the Powerpole connector per `wiring_guide.md`.
+5. Run the 8-conductor cable between the two boxes before closing
+   either lid — much easier to solder/crimp with the boards accessible.
+6. Close both lids (M3 screws into the corner posts; heat-set inserts
+   recommended if you'll be opening these more than a couple of times).

@@ -1,9 +1,11 @@
 /*************************************************************************
   Dividing Head Controller — Arduino Nano version
   For use with: VEVOR K11-100 dividing head (NEMA23, 6:1 belt reduction)
-  Driven through an external STEP/DIR stepper driver (TB6600 / DM542 /
-  similar) -- the K11 head has NO built-in driver, so the Arduino talks
-  to the external driver, and the driver talks to the K11's motor.
+  Driven through an external STEP/DIR stepper driver (DRV8825 is the
+  default assumption for this build's wiring guide — TB6600/DM542 also
+  work unchanged if you want more current headroom) -- the K11 head has
+  NO built-in driver, so the Arduino talks to the external driver, and
+  the driver talks to the K11's motor.
 
   Uses the Nano's ATmega328P, identical pin functions to an Uno (same
   interrupt pins D2/D3, same I2C on A4/A5) — this is the same sketch

@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="108mm" height="156mm" viewBox="0 0 108 156">
+<rect width="108" height="156" fill="#111111"/>
+<g transform="translate(0,0)">
+<rect x="0" y="0" width="108" height="76" fill="#0a3d0a"/>
+<text x="4" y="6" font-size="4" fill="#ffffff" font-family="monospace">MAIN BOARD - TOP layer copper (component side view)</text>
+<g transform="translate(0,8)">
+<rect x="40.240" y="17.120" width="15.760" height="1.000" fill="#c87137"/>
+<rect x="40.240" y="19.660" width="15.760" height="1.000" fill="#c87137"/>
+<rect x="40.240" y="22.200" width="15.760" height="1.000" fill="#c87137"/>
+<rect x="38.000" y="37.440" width="2.240" height="1.000" fill="#c87137"/>
+<rect x="37.500" y="7.000" width="1.000" height="30.940" fill="#c87137"/>
+<rect x="16.000" y="6.500" width="22.000" height="1.000" fill="#c87137"/>
+<rect x="38.000" y="6.500" width="57.000" height="1.000" fill="#c87137"/>
+<rect x="15.500" y="7.000" width="1.000" height="51.000" fill="#c87137"/>
+<rect x="53.500" y="7.000" width="1.000" height="8.080" fill="#c87137"/>
+<rect x="54.000" y="14.580" width="2.000" height="1.000" fill="#c87137"/>
+<rect x="83.500" y="7.000" width="1.000" height="36.020" fill="#c87137"/>
+<rect x="80.000" y="6.500" width="4.000" height="1.000" fill="#c87137"/>
+<rect x="80.000" y="42.520" width="4.000" height="1.000" fill="#c87137"/>
+<rect x="20.000" y="37.440" width="5.000" height="1.000" fill="#c87137"/>
+<rect x="19.500" y="37.940" width="1.000" height="10.060" fill="#c87137"/>
+<rect x="18.000" y="47.500" width="2.000" height="1.000" fill="#c87137"/>
+<rect x="20.000" y="47.500" width="77.000" height="1.000" fill="#c87137"/>
+<rect x="17.500" y="48.000" width="1.000" height="12.000" fill="#c87137"/>
+<rect x="57.500" y="12.540" width="1.000" height="35.460" fill="#c87137"/>
+<rect x="56.000" y="12.040" width="2.000" height="1.000" fill="#c87137"/>
+<rect x="81.500" y="45.560" width="1.000" height="2.440" fill="#c87137"/>
+<rect x="80.000" y="45.060" width="2.000" height="1.000" fill="#c87137"/>
+<rect x="24.050" y="36.990" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="37.940" r="0.4" fill="#000000"/>
+<text x="26.100" y="38.840" font-size="1.6" fill="#ffffff" font-family="monospace">5V</text>
+<rect x="39.290" y="16.670" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="17.620" r="0.4" fill="#000000"/>
+<text x="41.340" y="18.520" font-size="1.6" fill="#ffffff" font-family="monospace">STEP(D9)</text>
+<rect x="39.290" y="19.210" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="20.160" r="0.4" fill="#000000"/>
+<text x="41.340" y="21.060" font-size="1.6" fill="#ffffff" font-family="monospace">DIR(D8)</text>
+<rect x="39.290" y="21.750" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="22.700" r="0.4" fill="#000000"/>
+<text x="41.340" y="23.600" font-size="1.6" fill="#ffffff" font-family="monospace">EN(D7)</text>
+<rect x="39.290" y="36.990" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="37.940" r="0.4" fill="#000000"/>
+<text x="41.340" y="38.840" font-size="1.6" fill="#ffffff" font-family="monospace">GND</text>
+<rect x="55.050" y="11.590" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="56.000" cy="12.540" r="0.4" fill="#000000"/>
+<text x="57.100" y="13.440" font-size="1.6" fill="#ffffff" font-family="monospace">DRV_VDD</text>
+<rect x="55.050" y="14.130" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="56.000" cy="15.080" r="0.4" fill="#000000"/>
+<text x="57.100" y="15.980" font-size="1.6" fill="#ffffff" font-family="monospace">DRV_GND</text>
+<rect x="55.050" y="16.670" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="56.000" cy="17.620" r="0.4" fill="#000000"/>
+<text x="57.100" y="18.520" font-size="1.6" fill="#ffffff" font-family="monospace">DRV_STEP</text>
+<rect x="55.050" y="19.210" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="56.000" cy="20.160" r="0.4" fill="#000000"/>
+<text x="57.100" y="21.060" font-size="1.6" fill="#ffffff" font-family="monospace">DRV_DIR</text>
+<rect x="55.050" y="21.750" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="56.000" cy="22.700" r="0.4" fill="#000000"/>
+<text x="57.100" y="23.600" font-size="1.6" fill="#ffffff" font-family="monospace">DRV_EN</text>
+<rect x="79.050" y="42.070" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="80.000" cy="43.020" r="0.4" fill="#000000"/>
+<text x="81.100" y="43.920" font-size="1.6" fill="#ffffff" font-family="monospace">P_GND</text>
+<rect x="79.050" y="44.610" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="80.000" cy="45.560" r="0.4" fill="#000000"/>
+<text x="81.100" y="46.460" font-size="1.6" fill="#ffffff" font-family="monospace">P_5V</text>
+<rect x="15.050" y="57.050" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="16.000" cy="58.000" r="0.4" fill="#000000"/>
+<text x="17.100" y="58.900" font-size="1.6" fill="#ffffff" font-family="monospace">PWR_GND</text>
+<rect x="17.050" y="59.050" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="18.000" cy="60.000" r="0.4" fill="#000000"/>
+<text x="19.100" y="60.900" font-size="1.6" fill="#ffffff" font-family="monospace">PWR_5V</text>
+<rect x="24.050" y="9.050" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="10.000" r="0.4" fill="#000000"/>
+<text x="26.100" y="10.900" font-size="1.6" fill="#ffffff" font-family="monospace">D13</text>
+<rect x="24.050" y="11.590" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="12.540" r="0.4" fill="#000000"/>
+<text x="26.100" y="13.440" font-size="1.6" fill="#ffffff" font-family="monospace">3V3</text>
+<rect x="24.050" y="14.130" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="15.080" r="0.4" fill="#000000"/>
+<text x="26.100" y="15.980" font-size="1.6" fill="#ffffff" font-family="monospace">REF</text>
+<rect x="24.050" y="16.670" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="17.620" r="0.4" fill="#000000"/>
+<text x="26.100" y="18.520" font-size="1.6" fill="#ffffff" font-family="monospace">A0</text>
+<rect x="24.050" y="19.210" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="20.160" r="0.4" fill="#000000"/>
+<text x="26.100" y="21.060" font-size="1.6" fill="#ffffff" font-family="monospace">A1</text>
+<rect x="24.050" y="21.750" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="22.700" r="0.4" fill="#000000"/>
+<text x="26.100" y="23.600" font-size="1.6" fill="#ffffff" font-family="monospace">A2</text>
+<rect x="24.050" y="24.290" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="25.240" r="0.4" fill="#000000"/>
+<text x="26.100" y="26.140" font-size="1.6" fill="#ffffff" font-family="monospace">A3</text>
+<rect x="24.050" y="26.830" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="27.780" r="0.4" fill="#000000"/>
+<text x="26.100" y="28.680" font-size="1.6" fill="#ffffff" font-family="monospace">SDA(A4)</text>
+<rect x="24.050" y="29.370" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="30.320" r="0.4" fill="#000000"/>
+<text x="26.100" y="31.220" font-size="1.6" fill="#ffffff" font-family="monospace">SCL(A5)</text>
+<rect x="24.050" y="31.910" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="32.860" r="0.4" fill="#000000"/>
+<text x="26.100" y="33.760" font-size="1.6" fill="#ffffff" font-family="monospace">A6</text>
+<rect x="24.050" y="34.450" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="35.400" r="0.4" fill="#000000"/>
+<text x="26.100" y="36.300" font-size="1.6" fill="#ffffff" font-family="monospace">A7</text>
+<rect x="24.050" y="39.530" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="40.480" r="0.4" fill="#000000"/>
+<text x="26.100" y="41.380" font-size="1.6" fill="#ffffff" font-family="monospace">RESET</text>
+<rect x="24.050" y="44.610" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="45.560" r="0.4" fill="#000000"/>
+<text x="26.100" y="46.460" font-size="1.6" fill="#ffffff" font-family="monospace">VIN</text>
+<rect x="39.290" y="9.050" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="10.000" r="0.4" fill="#000000"/>
+<text x="41.340" y="10.900" font-size="1.6" fill="#ffffff" font-family="monospace">D12</text>
+<rect x="39.290" y="11.590" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="12.540" r="0.4" fill="#000000"/>
+<text x="41.340" y="13.440" font-size="1.6" fill="#ffffff" font-family="monospace">D11</text>
+<rect x="39.290" y="14.130" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="15.080" r="0.4" fill="#000000"/>
+<text x="41.340" y="15.980" font-size="1.6" fill="#ffffff" font-family="monospace">D10</text>
+<rect x="39.290" y="24.290" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="25.240" r="0.4" fill="#000000"/>
+<text x="41.340" y="26.140" font-size="1.6" fill="#ffffff" font-family="monospace">D6</text>
+<rect x="39.290" y="26.830" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="27.780" r="0.4" fill="#000000"/>
+<text x="41.340" y="28.680" font-size="1.6" fill="#ffffff" font-family="monospace">BTN(D5)</text>
+<rect x="39.290" y="29.370" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="30.320" r="0.4" fill="#000000"/>
+<text x="41.340" y="31.220" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_SW(D4)</text>
+<rect x="39.290" y="31.910" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="32.860" r="0.4" fill="#000000"/>
+<text x="41.340" y="33.760" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_DT(D3)</text>
+<rect x="39.290" y="34.450" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="35.400" r="0.4" fill="#000000"/>
+<text x="41.340" y="36.300" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_CLK(D2)</text>
+<rect x="39.290" y="39.530" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="40.480" r="0.4" fill="#000000"/>
+<text x="41.340" y="41.380" font-size="1.6" fill="#ffffff" font-family="monospace">RESET</text>
+<rect x="39.290" y="42.070" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="43.020" r="0.4" fill="#000000"/>
+<text x="41.340" y="43.920" font-size="1.6" fill="#ffffff" font-family="monospace">RX0</text>
+<rect x="39.290" y="44.610" width="1.9" height="1.9" fill="#c87137" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="45.560" r="0.4" fill="#000000"/>
+<text x="41.340" y="46.460" font-size="1.6" fill="#ffffff" font-family="monospace">TX1</text>
+</g>
+</g>
+<g transform="translate(0,80)">
+<rect x="0" y="0" width="108" height="76" fill="#0a3d0a"/>
+<text x="4" y="6" font-size="4" fill="#ffffff" font-family="monospace">MAIN BOARD - BOTTOM layer copper (as seen through the board from the top/component side)</text>
+<g transform="translate(0,8)">
+<rect x="40.240" y="27.280" width="39.760" height="1.000" fill="#3d8ec8"/>
+<rect x="40.240" y="29.820" width="39.760" height="1.000" fill="#3d8ec8"/>
+<rect x="40.240" y="32.360" width="39.760" height="1.000" fill="#3d8ec8"/>
+<rect x="40.240" y="34.900" width="39.760" height="1.000" fill="#3d8ec8"/>
+<rect x="18.000" y="27.280" width="7.000" height="1.000" fill="#3d8ec8"/>
+<rect x="17.500" y="5.000" width="1.000" height="22.780" fill="#3d8ec8"/>
+<rect x="18.000" y="4.500" width="66.000" height="1.000" fill="#3d8ec8"/>
+<rect x="83.500" y="5.000" width="1.000" height="32.940" fill="#3d8ec8"/>
+<rect x="80.000" y="37.440" width="4.000" height="1.000" fill="#3d8ec8"/>
+<rect x="15.000" y="29.820" width="10.000" height="1.000" fill="#3d8ec8"/>
+<rect x="14.500" y="30.320" width="1.000" height="18.680" fill="#3d8ec8"/>
+<rect x="15.000" y="48.500" width="61.000" height="1.000" fill="#3d8ec8"/>
+<rect x="75.500" y="40.480" width="1.000" height="8.520" fill="#3d8ec8"/>
+<rect x="76.000" y="39.980" width="4.000" height="1.000" fill="#3d8ec8"/>
+<rect x="24.050" y="26.830" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="27.780" r="0.4" fill="#000000"/>
+<text x="26.100" y="28.680" font-size="1.6" fill="#ffffff" font-family="monospace">SDA(A4)</text>
+<rect x="24.050" y="29.370" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="30.320" r="0.4" fill="#000000"/>
+<text x="26.100" y="31.220" font-size="1.6" fill="#ffffff" font-family="monospace">SCL(A5)</text>
+<rect x="39.290" y="26.830" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="27.780" r="0.4" fill="#000000"/>
+<text x="41.340" y="28.680" font-size="1.6" fill="#ffffff" font-family="monospace">BTN(D5)</text>
+<rect x="39.290" y="29.370" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="30.320" r="0.4" fill="#000000"/>
+<text x="41.340" y="31.220" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_SW(D4)</text>
+<rect x="39.290" y="31.910" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="32.860" r="0.4" fill="#000000"/>
+<text x="41.340" y="33.760" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_DT(D3)</text>
+<rect x="39.290" y="34.450" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="35.400" r="0.4" fill="#000000"/>
+<text x="41.340" y="36.300" font-size="1.6" fill="#ffffff" font-family="monospace">ENC_CLK(D2)</text>
+<rect x="79.050" y="26.830" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="80.000" cy="27.780" r="0.4" fill="#000000"/>
+<text x="81.100" y="28.680" font-size="1.6" fill="#ffffff" font-family="monospace">P_BTN_SIG</text>
+<rect x="79.050" y="29.370" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="80.000" cy="30.320" r="0.4" fill="#000000"/>
+<text x="81.100" y="31.220" font-size="1.6" fill="#ffffff" font-family="monospace">P_ENC_SW</text>
+<rect x="79.050" y="31.910" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="80.000" cy="32.860" r="0.4" fill="#000000"/>
+<text x="81.100" y="33.760" font-size="1.6" fill="#ffffff" font-family="monospace">P_ENC_DT</text>
+<rect x="79.050" y="34.450" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="80.000" cy="35.400" r="0.4" fill="#000000"/>
+<text x="81.100" y="36.300" font-size="1.6" fill="#ffffff" font-family="monospace">P_ENC_CLK</text>
+<rect x="79.050" y="36.990" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="80.000" cy="37.940" r="0.4" fill="#000000"/>
+<text x="81.100" y="38.840" font-size="1.6" fill="#ffffff" font-family="monospace">P_SDA</text>
+<rect x="79.050" y="39.530" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="80.000" cy="40.480" r="0.4" fill="#000000"/>
+<text x="81.100" y="41.380" font-size="1.6" fill="#ffffff" font-family="monospace">P_SCL</text>
+<rect x="24.050" y="9.050" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="10.000" r="0.4" fill="#000000"/>
+<text x="26.100" y="10.900" font-size="1.6" fill="#ffffff" font-family="monospace">D13</text>
+<rect x="24.050" y="11.590" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="12.540" r="0.4" fill="#000000"/>
+<text x="26.100" y="13.440" font-size="1.6" fill="#ffffff" font-family="monospace">3V3</text>
+<rect x="24.050" y="14.130" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="15.080" r="0.4" fill="#000000"/>
+<text x="26.100" y="15.980" font-size="1.6" fill="#ffffff" font-family="monospace">REF</text>
+<rect x="24.050" y="16.670" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="17.620" r="0.4" fill="#000000"/>
+<text x="26.100" y="18.520" font-size="1.6" fill="#ffffff" font-family="monospace">A0</text>
+<rect x="24.050" y="19.210" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="20.160" r="0.4" fill="#000000"/>
+<text x="26.100" y="21.060" font-size="1.6" fill="#ffffff" font-family="monospace">A1</text>
+<rect x="24.050" y="21.750" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="22.700" r="0.4" fill="#000000"/>
+<text x="26.100" y="23.600" font-size="1.6" fill="#ffffff" font-family="monospace">A2</text>
+<rect x="24.050" y="24.290" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="25.240" r="0.4" fill="#000000"/>
+<text x="26.100" y="26.140" font-size="1.6" fill="#ffffff" font-family="monospace">A3</text>
+<rect x="24.050" y="31.910" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="32.860" r="0.4" fill="#000000"/>
+<text x="26.100" y="33.760" font-size="1.6" fill="#ffffff" font-family="monospace">A6</text>
+<rect x="24.050" y="34.450" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="35.400" r="0.4" fill="#000000"/>
+<text x="26.100" y="36.300" font-size="1.6" fill="#ffffff" font-family="monospace">A7</text>
+<rect x="24.050" y="36.990" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="37.940" r="0.4" fill="#000000"/>
+<text x="26.100" y="38.840" font-size="1.6" fill="#ffffff" font-family="monospace">5V</text>
+<rect x="24.050" y="39.530" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="40.480" r="0.4" fill="#000000"/>
+<text x="26.100" y="41.380" font-size="1.6" fill="#ffffff" font-family="monospace">RESET</text>
+<rect x="24.050" y="42.070" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="43.020" r="0.4" fill="#000000"/>
+<text x="26.100" y="43.920" font-size="1.6" fill="#ffffff" font-family="monospace">GND</text>
+<rect x="24.050" y="44.610" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="25.000" cy="45.560" r="0.4" fill="#000000"/>
+<text x="26.100" y="46.460" font-size="1.6" fill="#ffffff" font-family="monospace">VIN</text>
+<rect x="39.290" y="9.050" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="10.000" r="0.4" fill="#000000"/>
+<text x="41.340" y="10.900" font-size="1.6" fill="#ffffff" font-family="monospace">D12</text>
+<rect x="39.290" y="11.590" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="12.540" r="0.4" fill="#000000"/>
+<text x="41.340" y="13.440" font-size="1.6" fill="#ffffff" font-family="monospace">D11</text>
+<rect x="39.290" y="14.130" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="15.080" r="0.4" fill="#000000"/>
+<text x="41.340" y="15.980" font-size="1.6" fill="#ffffff" font-family="monospace">D10</text>
+<rect x="39.290" y="16.670" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="17.620" r="0.4" fill="#000000"/>
+<text x="41.340" y="18.520" font-size="1.6" fill="#ffffff" font-family="monospace">STEP(D9)</text>
+<rect x="39.290" y="19.210" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="20.160" r="0.4" fill="#000000"/>
+<text x="41.340" y="21.060" font-size="1.6" fill="#ffffff" font-family="monospace">DIR(D8)</text>
+<rect x="39.290" y="21.750" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="22.700" r="0.4" fill="#000000"/>
+<text x="41.340" y="23.600" font-size="1.6" fill="#ffffff" font-family="monospace">EN(D7)</text>
+<rect x="39.290" y="24.290" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="25.240" r="0.4" fill="#000000"/>
+<text x="41.340" y="26.140" font-size="1.6" fill="#ffffff" font-family="monospace">D6</text>
+<rect x="39.290" y="36.990" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="37.940" r="0.4" fill="#000000"/>
+<text x="41.340" y="38.840" font-size="1.6" fill="#ffffff" font-family="monospace">GND</text>
+<rect x="39.290" y="39.530" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="40.480" r="0.4" fill="#000000"/>
+<text x="41.340" y="41.380" font-size="1.6" fill="#ffffff" font-family="monospace">RESET</text>
+<rect x="39.290" y="42.070" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="43.020" r="0.4" fill="#000000"/>
+<text x="41.340" y="43.920" font-size="1.6" fill="#ffffff" font-family="monospace">RX0</text>
+<rect x="39.290" y="44.610" width="1.9" height="1.9" fill="#3d8ec8" stroke="#000000" stroke-width="0.08"/>
+<circle cx="40.240" cy="45.560" r="0.4" fill="#000000"/>
+<text x="41.340" y="46.460" font-size="1.6" fill="#ffffff" font-family="monospace">TX1</text>
+</g>
+</g>
+</svg>
