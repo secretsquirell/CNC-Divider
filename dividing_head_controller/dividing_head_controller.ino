@@ -14,11 +14,16 @@
 
   Features
   ---------
-  - SSD1306 128x64 I2C OLED menu
+  - SSD1306 128x64 I2C OLED, home status screen + separate full-screen
+    MENU (fixes the earlier layout where a long item list ran off the
+    bottom of the display)
   - Rotary encoder (with push button) for menu navigation / value entry
   - Dedicated INDEX button: rotates the set number of degrees every time
     it's pressed (turn a workpiece into equal divisions by pressing it
-    repeatedly), with a running division counter on screen
+    repeatedly), with a running division counter on screen. While
+    editing the degrees/index value, the same INDEX button instead
+    cycles the increment size (100 / 10 / 1 / 0.1 / 0.01 degrees per
+    encoder click) so large changes don't take hundreds of clicks.
   - Editable settings, saved to EEPROM:
       * Degrees per index (0.01 - 999.99)
       * Speed (as % of max speed)
@@ -123,9 +128,12 @@ void encoderISR() {
 // Simple debounced button reader
 struct Button {
   uint8_t pin;
-  bool lastReading = HIGH;
-  bool stableState = HIGH;
-  unsigned long lastChange = 0;
+  bool lastReading;
+  bool stableState;
+  unsigned long lastChange;
+
+  Button(uint8_t p) : pin(p), lastReading(HIGH), stableState(HIGH), lastChange(0) {}
+
   bool pressedEvent() {
     bool reading = digitalRead(pin);
     if (reading != lastReading) lastChange = millis();
@@ -145,6 +153,7 @@ Button idxBtn { PIN_INDEX_BTN };
 
 // ---------------- Menu state machine ----------------
 enum UIState {
+  HOME,
   MENU,
   EDIT_DEGREES,
   EDIT_SPEED,
@@ -154,16 +163,24 @@ enum UIState {
   CAL_GEARRATIO,
   RUNNING
 };
-UIState state = MENU;
+UIState state = HOME;
 
 const char* menuItems[] = {
   "Set Degrees",
   "Set Speed",
   "Set Direction",
-  "Calibrate"
+  "Calibrate",
+  "Back"
 };
-const uint8_t MENU_COUNT = 4;
+const uint8_t MENU_COUNT = 5;
 int8_t menuIndex = 0;
+
+// Degrees/index editor: encoder changes the value by whichever
+// increment is currently selected; the INDEX button cycles through
+// increments so large moves don't require hundreds of clicks.
+const float DEG_STEPS[] = {100.0, 10.0, 1.0, 0.1, 0.01};
+const uint8_t DEG_STEP_COUNT = 5;
+uint8_t degStepIdx = 2;   // default increment = 1.0 degree
 
 long divisionCount = 0;  // how many indexes since last zero, for tracking
 
@@ -189,14 +206,15 @@ void setup() {
     while (true) { digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN)); delay(200); }
   }
   display.setTextColor(SSD1306_WHITE);
-  drawMenu();
+  drawHome();
 }
 
 // ---------------- Main loop ----------------
 void loop() {
   switch (state) {
+    case HOME:          handleHome();        break;
     case MENU:          handleMenu();        break;
-    case EDIT_DEGREES:  handleEditFloat(cfg.degreesPerIdx, 0.01, 0.01, 999.99, "Set Degrees/Index"); break;
+    case EDIT_DEGREES:  handleEditDegrees(); break;
     case EDIT_SPEED:    handleEditSpeed();   break;
     case EDIT_DIRECTION:handleEditDirection();break;
     case CAL_STEPSREV:  handleEditCalInt(cfg.motorStepsRev, 1, 1, 5000, "Motor steps/rev"); break;
@@ -205,31 +223,22 @@ void loop() {
     case RUNNING:        handleRunning();    break;
   }
 
-  // INDEX button works from the main menu screen at any time
-  if (state == MENU && idxBtn.pressedEvent()) {
+  // INDEX button triggers a move from the home screen at any time
+  if (state == HOME && idxBtn.pressedEvent()) {
     startIndexMove();
   }
 }
 
-// ---------------- Menu screen ----------------
-void handleMenu() {
-  if (encDelta != 0) {
-    menuIndex = constrain(menuIndex + (encDelta > 0 ? 1 : -1), 0, MENU_COUNT - 1);
-    encDelta = 0;
-    drawMenu();
-  }
+// ---------------- Home screen (status readout, default view) ----------------
+void handleHome() {
   if (encBtn.pressedEvent()) {
-    switch (menuIndex) {
-      case 0: state = EDIT_DEGREES;   break;
-      case 1: state = EDIT_SPEED;     break;
-      case 2: state = EDIT_DIRECTION; break;
-      case 3: state = CAL_STEPSREV;   break;
-    }
-    drawEditScreen();
+    state = MENU;
+    menuIndex = 0;
+    drawMenu();
   }
 }
 
-void drawMenu() {
+void drawHome() {
   display.clearDisplay();
   display.setTextSize(1);
   display.setCursor(0, 0);
@@ -251,15 +260,87 @@ void drawMenu() {
   display.print(divisionCount);
 
   display.drawFastHLine(0, 41, 128, SSD1306_WHITE);
+  display.setCursor(0, 46);
+  display.print(F("INDEX = turn"));
+  display.setCursor(0, 55);
+  display.print(F("Press encoder = MENU"));
+  display.display();
+}
+
+// ---------------- Menu screen (full-height item list) ----------------
+void handleMenu() {
+  if (encDelta != 0) {
+    menuIndex = constrain(menuIndex + (encDelta > 0 ? 1 : -1), 0, MENU_COUNT - 1);
+    encDelta = 0;
+    drawMenu();
+  }
+  if (encBtn.pressedEvent()) {
+    switch (menuIndex) {
+      case 0: state = EDIT_DEGREES;   drawEditScreen(); return;
+      case 1: state = EDIT_SPEED;     drawEditScreen(); return;
+      case 2: state = EDIT_DIRECTION; drawEditScreen(); return;
+      case 3: state = CAL_STEPSREV;   drawEditScreen(); return;
+      case 4: state = HOME;           drawHome();       return;  // Back
+    }
+  }
+}
+
+void drawMenu() {
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setCursor(0, 0);
+  display.print(F("MENU"));
+  display.drawFastHLine(0, 9, 128, SSD1306_WHITE);
+
+  // Full display height available now that this is its own screen —
+  // 5 items at 10px each fits comfortably within 64px with room to spare.
   for (uint8_t i = 0; i < MENU_COUNT; i++) {
-    display.setCursor(0, 44 + i * 8);
+    display.setCursor(0, 14 + i * 10);
     display.print(i == menuIndex ? F("> ") : F("  "));
     display.print(menuItems[i]);
   }
   display.display();
 }
 
-// ---------------- Generic float editor (degrees / gear ratio) ----------------
+// ---------------- Degrees/index editor (selectable increment) ----------------
+void handleEditDegrees() {
+  if (encDelta != 0) {
+    float step = DEG_STEPS[degStepIdx];
+    cfg.degreesPerIdx = constrain(cfg.degreesPerIdx + encDelta * step, 0.01, 999.99);
+    encDelta = 0;
+    drawEditDegreesScreen();
+  }
+  if (idxBtn.pressedEvent()) {
+    degStepIdx = (degStepIdx + 1) % DEG_STEP_COUNT;
+    drawEditDegreesScreen();
+  }
+  if (encBtn.pressedEvent()) {
+    saveSettings();
+    state = MENU;
+    drawMenu();
+  }
+}
+
+void drawEditDegreesScreen() {
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setCursor(0, 0);
+  display.print(F("Set Degrees/Index"));
+  display.setTextSize(2);
+  display.setCursor(0, 18);
+  display.print(cfg.degreesPerIdx, 2);
+  display.setTextSize(1);
+  display.setCursor(0, 38);
+  display.print(F("Step: "));
+  display.print(DEG_STEPS[degStepIdx], 2);
+  display.setCursor(0, 48);
+  display.print(F("INDEX=step size"));
+  display.setCursor(0, 56);
+  display.print(F("Rotate=chg Press=save"));
+  display.display();
+}
+
+// ---------------- Generic float editor (gear ratio) ----------------
 void handleEditFloat(float &value, float step, float minV, float maxV, const char* label) {
   if (encDelta != 0) {
     value = constrain(value + encDelta * step, minV, maxV);
@@ -290,7 +371,7 @@ void drawEditFloat(float value, const char* label) {
 // call once when entering an edit state to draw first frame
 void drawEditScreen() {
   switch (state) {
-    case EDIT_DEGREES:   drawEditFloat(cfg.degreesPerIdx, "Set Degrees/Index"); break;
+    case EDIT_DEGREES:   drawEditDegreesScreen(); break;
     case EDIT_SPEED:     drawEditSpeedScreen(); break;
     case EDIT_DIRECTION: drawEditDirScreen();   break;
     case CAL_STEPSREV:   drawEditIntScreen(cfg.motorStepsRev, "Motor steps/rev"); break;
@@ -411,8 +492,8 @@ void handleRunning() {
 
   if (stepper.distanceToGo() == 0) {
     divisionCount++;
-    state = MENU;
-    drawMenu();
+    state = HOME;
+    drawHome();
     return;
   }
 
