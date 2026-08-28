@@ -184,6 +184,11 @@ fusing each branch for a project this size.
 
 ## Setting up the DRV8825 driver
 
+> **Note:** if you're using the StepperOnline-style "5056" industrial
+> driver instead (opto-isolated PUL/DIR/ENA inputs, DIP-switch current
+> and microstep settings) — see the dedicated section below instead of
+> this one. This section is for the original bare DRV8825 module build.
+
 The DRV8825 is a bare module, not an assembled box like the TB6600 —
 it needs a few extra setup steps the TB6600 doesn't:
 
@@ -228,6 +233,92 @@ it needs a few extra setup steps the TB6600 doesn't:
    documented as vulnerable to voltage-spike damage from motor back-EMF
    without one nearby, even at 24V. Mount the capacitor as close to the
    driver's VMOT/GND pins as your wiring allows.
+
+## Setting up the 5056 stepper driver
+
+This driver is a different class of part from the DRV8825/A3967 —
+opto-isolated differential inputs, DIP-switch configuration, and a
+current rating (up to 5.6A on most "5056" boards) with real headroom
+above the K11 motor's 3A rating. If you've swapped to this driver, use
+this section instead of the DRV8825 one above; the firmware has
+already been updated to match (see the comments in `setup()` around
+`stepper.setPinsInverted()`).
+
+**Wiring — this is not the same as STEP/DIR/EN wiring:**
+- Tie **PUL+, DIR+, and ENA+ together to the Nano's 5V.**
+- Wire **PUL- to the Nano's STEP pin (D9), DIR- to DIR (D8), ENA- to
+  ENABLE (D7).**
+- This is opposite polarity from the DRV8825/A3967: a step happens
+  when the Nano pulls PUL- LOW (sinking current through the opto), not
+  when it goes HIGH. The firmware already accounts for this.
+- **Enable polarity varies by driver model and isn't something to
+  assume** — after wiring, test it: if the motor only refuses to move
+  with ENA connected but works fine with ENA+/ENA- left disconnected,
+  the sense is inverted from what the firmware expects. The fix is a
+  one-line change (`digitalWrite(PIN_ENABLE, LOW)` → `HIGH` in
+  `setup()`), not a rewiring job.
+
+**Current limit — set with SW1/SW2/SW3, read directly off your
+driver's printed table** (values vary slightly between boards, so
+don't assume the numbers below without checking your own label):
+- For the K11's 3A-rated motor, the closest setting *at or under* 3A is
+  usually preferable to rounding up — don't pick a setting above the
+  motor's rating.
+- **SW4 controls idle current**: half-current standby vs. full current
+  at all times. For a dividing head, which needs to hold its position
+  firmly against cutting force between indexes (not just idle),
+  **full current is the right choice**, not the half-current standby
+  mode some of these drivers default to for 3D-printer-style use.
+
+**Microstep — set with SW5/SW6/SW7/SW8, read directly off your
+driver's printed table.** Don't guess this from a photo — a
+transcription error here silently produces wrong angles, which is a
+much worse failure mode than the driver simply not working. Pick a
+value (8 or 16 is a reasonable default for smooth motion without
+excessive step frequency), read the exact switch positions off your
+own unit's label, and set that same number in the firmware's Calibrate
+menu (Driver microstep) so the steps-per-degree math matches. As
+before, a quick sanity check once it's running: command a full 360°
+move and confirm the chuck completes exactly one turn.
+
+## Wiring the motor to the driver
+
+The DRV8825's two output pairs are usually labeled **A1/A2** and
+**B1/B2** on the breakout's silkscreen (some boards print it as
+1A/1B and 2A/2B instead — same idea). The 5056 driver labels the same
+concept **A+/A-** and **B+/B-** on its screw terminals. Either way,
+each pair drives one full coil of the K11's NEMA23 motor. What matters
+is that each pair connects to one whole coil — not two wires from
+different coils.
+
+**Find the coil pairs with a multimeter before connecting anything —
+don't trust wire color alone**, since it isn't standardized between
+motor manufacturers:
+1. Set the meter to resistance/continuity.
+2. Test all 6 possible combinations among the motor's 4 wires.
+3. Exactly 2 pairs should show low resistance (typically a few ohms
+   for a NEMA23) — those are your two coils.
+4. The other 4 combinations should show open/infinite resistance,
+   confirming the coils are electrically isolated from each other, as
+   they should be in a proper 4-lead bipolar motor.
+
+A common (not universal) color scheme is black+green = coil A,
+red+blue = coil B — worth checking if VEVOR included a wiring label
+with the K11's motor cable, but verify with the meter regardless.
+
+Connect one coil to A1/A2 (or A+/A- on the 5056), the other to B1/B2
+(or B+/B-) — it doesn't matter which physical coil you call "A" vs
+"B." Within a pair, swapping the two wires only reverses that coil's
+polarity, which just reverses the motor's rotation direction for a
+given DIR signal; it won't damage anything or cause erratic operation.
+If the K11 turns backward from what you expect once everything's
+wired up, there's no need to re-wire — just flip the `direction`
+setting in the firmware's menu.
+
+**Power the driver off before connecting or disconnecting the
+motor.** Hot-plugging motor phases on a powered driver can spike the
+output stage from back-EMF and damage it — always connect the motor
+first, then power up.
 
 ## Wiring the Anderson Powerpoles
 - Crimp (preferred) or solder 24V+ into a red PP15/30/45 housing and

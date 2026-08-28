@@ -69,18 +69,9 @@ const uint8_t PIN_ENC_SW    = 4;
 const uint8_t PIN_INDEX_BTN = 5;
 const uint8_t PIN_STEP      = 9;
 const uint8_t PIN_DIR       = 8;
-const uint8_t PIN_ENABLE    = 7;   // to ENA- on the 5056 driver — see note below
+const uint8_t PIN_ENABLE    = 7;   // LOW = driver enabled (most drivers)
 
 // ---------------- Stepper ----------------
-// The 5056 driver's PUL/DIR/ENA inputs are opto-isolated and
-// differential (PUL+/PUL-, DIR+/DIR-, ENA+/ENA-), not simple
-// single-ended logic pins like the DRV8825/A3967 used before. Wire
-// PUL+, DIR+, and ENA+ all together to the Nano's 5V, and PUL-, DIR-,
-// ENA- to PIN_STEP, PIN_DIR, PIN_ENABLE respectively. That means a
-// "step" happens when the Nano pulls PIN_STEP LOW (sinking current
-// through the opto), not HIGH — the opposite polarity from a
-// DRV8825/A3967. setPinsInverted's 2nd argument (step invert) below
-// accounts for that so the rest of the firmware doesn't need to change.
 AccelStepper stepper(AccelStepper::DRIVER, PIN_STEP, PIN_DIR);
 
 // ---------------- Persistent settings ----------------
@@ -144,16 +135,25 @@ struct Button {
   Button(uint8_t p) : pin(p), lastReading(HIGH), stableState(HIGH), lastChange(0) {}
 
   bool pressedEvent() {
+    //Serial.print("Button pressed "); Serial.println(pin);
     bool reading = digitalRead(pin);
     if (reading != lastReading) lastChange = millis();
     if (millis() - lastChange > 25) {
       if (reading != stableState) {
         stableState = reading;
         lastReading = reading;
-        if (stableState == LOW) return true; // active-low press
+        //Serial.print("Button pressed "); Serial.println(pin);
+        if (stableState == LOW){ 
+          //Serial.print("returning True");
+          return true; // active-low press
+                                              //
+        }
       }
     }
     lastReading = reading;
+    //Serial.print("Button pressed "); Serial.println(pin);
+    //Serial.print("returning false");
+    
     return false;
   }
 };
@@ -195,6 +195,8 @@ long divisionCount = 0;  // how many indexes since last zero, for tracking
 
 // ---------------- Setup ----------------
 void setup() {
+  Serial.begin(9600);
+
   pinMode(PIN_ENC_CLK, INPUT_PULLUP);
   pinMode(PIN_ENC_DT, INPUT_PULLUP);
   pinMode(PIN_ENC_SW, INPUT_PULLUP);
@@ -207,33 +209,7 @@ void setup() {
 
   stepper.setMaxSpeed(MAX_SPEED_SPS);
   stepper.setAcceleration(MAX_ACCEL_SPS2);
-  // 2nd arg (step invert) = true: the 5056's PUL- input triggers on a
-  // LOW pulse through its opto-isolator, not a HIGH pulse like a
-  // DRV8825/A3967's STEP pin. (3rd arg is AccelStepper's own enable-
-  // invert, which has no effect here since ENABLE is driven manually
-  // below rather than through stepper.enableOutputs() — left false.)
-  stepper.setPinsInverted(false, true, false);
-  // Enable polarity on opto-isolated drivers varies by model — verify
-  // this empirically. Direction polarity is likewise arbitrary; if the
-  // motor turns the wrong way, use the firmware's own CW/CCW menu
-  // setting rather than rewiring anything.
-  digitalWrite(PIN_ENABLE, LOW);   // enable driver — if the motor only
-                                    // refuses to move with ENA wired up
-                                    // but works fine with ENA+/ENA- left
-                                    // disconnected, change this to HIGH
-
-  // I2C timeout protection. The classic Wire library has no timeout by
-  // default — a single glitched transaction (e.g. from motor/driver
-  // electrical noise coupling into the SDA/SCL lines, which now run
-  // out to the separate pendant enclosure over a multi-conductor
-  // cable) can hang the bus, and with it the entire program,
-  // permanently. setWireTimeout aborts a stuck transaction instead of
-  // blocking forever, and resetWithTimeout re-inits the bus so it can
-  // recover on its own rather than needing a manual power cycle.
-  // (Requires a reasonably current Arduino AVR core — 1.8.3 or newer;
-  // if this fails to compile, update the core via Boards Manager.)
-  Wire.begin();
-  Wire.setWireTimeout(25000, true);  // 25ms timeout, auto-reset on timeout
+  digitalWrite(PIN_ENABLE, LOW);   // enable driver
 
   if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
     // If the OLED fails to init, halt with a blink so it's obvious.
@@ -242,6 +218,7 @@ void setup() {
   }
   display.setTextColor(SSD1306_WHITE);
   drawHome();
+  Serial.println("Setup");
 }
 
 // ---------------- Main loop ----------------
